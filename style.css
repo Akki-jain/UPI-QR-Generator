@@ -17,7 +17,8 @@ body {
 
 .outerContainer{
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap; /* Allows children to wrap onto new lines */
+    justify-content: center; 
     
 }
 
@@ -135,4 +136,20 @@ body {
 button:focus, input:focus {
     outline: none;
     border: 1px solid #a2a2a2; /* Lighter border */
+}
+
+/*Responsive Designing*/
+
+
+/* Targets screens smaller than 800px */
+@media (max-width: 800px) {
+    .outerContainer {
+        flex-direction: column; /* Stacks flex children vertically */
+    }
+    
+    .container,
+    .QRDiv {
+        width: 100%; /* Makes children take full width */
+        margin-bottom: 20px; /* Adds space between the stacked elements */
+    }
 }
