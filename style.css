@@ -39,8 +39,8 @@ body {
     text-align: center;
     box-shadow: 10px 15px 40px rgba(0, 0, 0, 0.1);
     padding: 40px;
-    width: 30%;
-    max-width: 500px;
+    /* width: 30%; */
+    min-width: 400px;
     margin:10px 30px 30px 30px;
     border:1px solid #e7e7e7;
 }
@@ -132,24 +132,23 @@ body {
 }
 
 
-/* Alternatively, if you want a subtle style, you can change the border color */
+/*Focus Color for inputs     */
 button:focus, input:focus {
     outline: none;
     border: 1px solid #a2a2a2; /* Lighter border */
 }
 
-/*Responsive Designing*/
 
 
-/* Targets screens smaller than 800px */
-@media (max-width: 800px) {
+/* Targets screens smaller than 600px */
+@media (max-width: 600px) {
     .outerContainer {
         flex-direction: column; /* Stacks flex children vertically */
     }
     
     .container,
     .QRDiv {
-        width: 100%; /* Makes children take full width */
+        width: 90%; /* Makes children take full width */
         margin-bottom: 20px; /* Adds space between the stacked elements */
     }
 }
