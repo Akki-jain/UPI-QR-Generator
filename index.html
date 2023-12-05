@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UPI Payment Link Generator</title>
+    <!-- Add CSS styles here -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="title">
+<img src="Assets/UPI-QR-Generator.png" alt="UPI QR Generator" width="500px;">
+</div>
+
+<div class="upi-logos">
+    <!-- Add your UPI logos here -->
+    <img src="Assets/BHIM_UPI.png" alt="BHIM">
+    <img src="Assets/GooglePay.png" alt="Google Pay">
+    <img src="Assets/Paytm.png" alt="Paytm">
+    <img src="Assets/PhonePe.png" alt="PhonePe">
+</div>
+<div class="outerContainer">
+    <div class="container">
+
+        <form id="upiForm">
+            <div class="input-group">
+                <label for="receiverName">Receiver's Name:</label>
+                <input type="text" id="receiverName" required>
+            </div>
+            <div class="input-group">
+                <label for="amount">Amount:</label>
+                <input type="number" id="amount" required>
+            </div>
+            <div class="input-group">
+                <label for="accountId">UPI ID:</label>
+                <input type="text" id="accountId" required>
+            </div>
+            <button type="button" class="button" onclick="generateLink()">Generate QR Code</button>
+        </form>
+    </div>
+
+    <div class="QRDiv">
+        <h3 style="color:#66686C">QR Code</h3>
+        <div id="qrcode" title=""></div>
+    
+        <!-- Button to show the link -->
+        <button type="button" class="secondaryButton" id="showLinkButton" style="display: none;">Show Link</button>
+        
+        <!-- The paragraph where the link will be displayed -->
+        <p id="linkContainer" style="display: none; word-wrap: break-word;">Link: <span id="generatedLink"></span></p>
+        
+        <!-- Button to copy the link -->
+        <button type="button" class="secondaryButton" id="copyLinkButton" style="display: none;">Copy Link</button>
+
+    </div>
+
+</div>
+
+
+    <!-- <div class="container">
+        <p>Generated Link: <span id="generatedLink"></span></p>
+        <div id="qrcode" title=""></div>
+    </div> -->
+
+    <!-- Add JavaScript at the end of the body -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+
+<script>
+    function generateLink() {
+    var receiverName = document.getElementById('receiverName').value;
+    var amount = document.getElementById('amount').value;
+    var accountId = document.getElementById('accountId').value;
+    var upiLink = `upi://pay?pn=${encodeURIComponent(receiverName)}&am=${amount}&mode=01&pa=${accountId}`;
+    document.getElementById('generatedLink').textContent = upiLink;
+    
+    // Show the "Show Link" and "Copy Link" buttons only after generating the link
+    document.getElementById('showLinkButton').style.display = 'inline-block';
+    document.getElementById('copyLinkButton').style.display = 'inline-block';
+    
+    generateQRCode(upiLink, receiverName);
+    }
+
+    // Function to display the generated link
+    document.getElementById('showLinkButton').addEventListener('click', function() {
+        var linkContainer = document.getElementById('linkContainer');
+        if (linkContainer.style.display === 'none') {
+            linkContainer.style.display = 'block'; // Show the link
+        } else {
+            linkContainer.style.display = 'none'; // Hide the link if it's already shown
+        }
+    });
+
+    // Function to copy the generated link
+    document.getElementById('copyLinkButton').addEventListener('click', function() {
+        var linkText = document.getElementById('generatedLink').textContent;
+        if (linkText !== "") {
+            navigator.clipboard.writeText(linkText).then(function() {
+                alert('Link copied to clipboard');
+            }).catch(function(error) {
+                alert('Error copying text: ', error);
+            });
+        }
+    });
+
+
+    function generateQRCode(text, receiverName) {
+    var qrContainer = document.getElementById('qrcode');
+    qrContainer.innerHTML = "";  // Clear previous QR code
+    new QRCode(qrContainer, text);  // Generate new QR code
+
+    // Set the tooltip with the receiver's name
+    qrContainer.title = "Paying to " + receiverName;
+    }
+
+
+</script>
+</body>
+</html>
+
