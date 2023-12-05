@@ -1,0 +1,138 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'poppins', sans-serif;
+    background-color: #ffffff;
+    color: #66686C;
+    line-height: 1.6;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+.outerContainer{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.container {
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 10px 15px 40px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 80%;
+    max-width: 500px;
+    margin:10px 30px 30px 30px;
+    border:1px solid #e7e7e7;
+}
+
+.QRDiv{
+    background: #fff;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 10px 15px 40px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 30%;
+    max-width: 500px;
+    margin:10px 30px 30px 30px;
+    border:1px solid #e7e7e7;
+}
+
+.title {
+    font-size: 2em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+/* Style the button */
+.button {
+    width: 100%;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 550;
+}
+
+.button:hover {
+    background: #0056b3;
+}
+
+/* QR Code styles */
+#qrcode {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    margin-bottom:10px;
+}
+
+/* Tooltips
+#qrcode[title]:hover:after {
+    content: attr(title);
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #e9661c;
+    color: #fff; 
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+} */
+
+/* Adjustments for the UPI logos */
+.upi-logos {
+    display: flex;
+    justify-content:center;
+
+}
+
+.upi-logos img {
+    max-width: 140px; /* Adjust size as needed */
+    /* border-radius: 50%; Circular logos */
+    margin:-10px -15px;
+}
+
+.secondaryButton{
+    padding:10px 20px;
+    background:white;
+    border:2px solid #e7e7e7;
+    margin:10px 20px;
+    border-radius: 10px;
+
+}
+
+
+/* Alternatively, if you want a subtle style, you can change the border color */
+button:focus, input:focus {
+    outline: none;
+    border: 1px solid #a2a2a2; /* Lighter border */
+}
